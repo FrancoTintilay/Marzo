@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.modelo.Usuario;
 import ar.edu.unju.edm.repository.IUsuarioDAO;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Service
 public class IUsuarioServiceImp implements IUsuarioService{
 	@Autowired
@@ -41,5 +42,12 @@ public class IUsuarioServiceImp implements IUsuarioService{
 		
 		return iUsuarioDAO.save(usuario);
 	}
-
+	@Override
+	public void crear(Usuario unUsuario) {
+		String pw=unUsuario.getPassword();
+		BCrypPasswordEncoder bCrypPasswordEncoder=new BCryptPasswordEncoder(4);
+		unUsuario.setPassword(bCrypPasswordEncoder.encode(pw));
+		iUsuarioDAO.save(unUsuario);
+	}
+	
 }

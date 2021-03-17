@@ -25,7 +25,7 @@ public class Usuario implements Serializable {
 	@Column
 	String password;
 	@Column
-	int dni;
+	String dni;
 	@Column
 	String nombre;
 	@Column
@@ -35,7 +35,7 @@ public class Usuario implements Serializable {
 	public Usuario() {
 		
 	}
-	public Usuario(Long id, String nombreusuario, String password, int dni, String nombre, String apellido,
+	public Usuario(Long id, String nombreusuario, String password, String dni, String nombre, String apellido,
 			String tipo) {
 		super();
 		this.id = id;
@@ -64,10 +64,10 @@ public class Usuario implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 	public String getNombre() {
@@ -93,62 +93,7 @@ public class Usuario implements Serializable {
 		return "Usuario [id=" + id + ", nombreusuario=" + nombreusuario + ", password=" + password + ", dni=" + dni
 				+ ", nombre=" + nombre + ", apellido=" + apellido + ", tipo=" + tipo + "]";
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((apellido == null) ? 0 : apellido.hashCode());
-		result = prime * result + dni;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + ((nombreusuario == null) ? 0 : nombreusuario.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		if (apellido == null) {
-			if (other.apellido != null)
-				return false;
-		} else if (!apellido.equals(other.apellido))
-			return false;
-		if (dni != other.dni)
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		if (nombreusuario == null) {
-			if (other.nombreusuario != null)
-				return false;
-		} else if (!nombreusuario.equals(other.nombreusuario))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (tipo == null) {
-			if (other.tipo != null)
-				return false;
-		} else if (!tipo.equals(other.tipo))
-			return false;
-		return true;
-	}
+	
 	
 	
 	
