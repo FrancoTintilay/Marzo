@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="UTF-8"/>
+<title>Editar Usuario</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+<div class = "container">
+	<form th:action="@{/guardarusuario}" th:object = ${usuarionuevo} method = "Post">
+	<h2>Editar</h2>
+	  		<div>
+				<input type="text" class="form-control" name="Nombre"
+					placeholder="Nombre	" required="required" th:field = "*{nombre}">
+			</div>
+			<input type= "hidden" th:field="*{id}" name="id" id="id">
+			<div>
+				<input type="text" class="form-control" name="Apellido"
+					placeholder="Apellido" required="required" th:field = "*{apellido}">
+			</div>
+			<div>
+				<input  class="form-control" name="dni"
+					placeholder="Ingrese dni" required="required" th:field = "*{dni}">
+			</div>
+			<div>
+				<input type="text" class="form-control" name="usuario"
+					placeholder="Nombre de Usuario" required="required" th:field = "*{nombreusuario}">
+			</div>
+			<div>
+				<input type="password" class="form-control" name="Contraseña"
+					placeholder="Password" required="required" th:field =  "*{password}">
+			</div>
+			<div class="form-group">
+						<label>Tipo</label> <br> <select th:field="*{tipo}"class="form-select form-select-lg mb-3">
+						<option th:value="'ROLE_administrador'"th:text="Administrador"></option>
+						<option th:value="'ROLE_cliente'"th:text="Cliente"></option>
+						</select>
+					</div>
+			
+		<button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+</div>
+</body>
+</html>
