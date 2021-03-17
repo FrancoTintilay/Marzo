@@ -13,5 +13,5 @@ public interface IUsuarioService{
 	public Usuario FindById(Long id);
 	public void eliminarUsuario(Long id);
 	public Usuario modUsuario(Usuario usuario);
-	public void crear(Usuario unUsuario);
+	public void crear(Usuario usuario);
 }

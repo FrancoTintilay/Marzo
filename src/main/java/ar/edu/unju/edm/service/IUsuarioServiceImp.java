@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class IUsuarioServiceImp implements IUsuarioService{
 	@Autowired
 	IUsuarioDAO iUsuarioDAO;
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Override
 	public void guardarUsu(Usuario usuario) {
 		// TODO Auto-generated method stub
@@ -43,11 +45,13 @@ public class IUsuarioServiceImp implements IUsuarioService{
 		return iUsuarioDAO.save(usuario);
 	}
 	@Override
-	public void crear(Usuario unUsuario) {
-		String pw=unUsuario.getPassword();
-		BCrypPasswordEncoder bCrypPasswordEncoder=new BCryptPasswordEncoder(4);
-		unUsuario.setPassword(bCrypPasswordEncoder.encode(pw));
-		iUsuarioDAO.save(unUsuario);
+	public void crear(Usuario usuario) {
+		String pw=usuario.getPassword();
+		BCryptPasswordEncoder bCryptPasswordEncoder= new BCryptPasswordEncoder(4);
+		usuario.setPassword(bCryptPasswordEncoder.encode(pw));
+		iUsuarioDAO.save(usuario);
+		
 	}
+	
 	
 }

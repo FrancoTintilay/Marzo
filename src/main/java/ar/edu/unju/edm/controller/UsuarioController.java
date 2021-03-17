@@ -53,6 +53,7 @@ public class UsuarioController {
 			iUsuarioService.modUsuario(usuarionuevo);
 		}else {
 			iUsuarioService.guardarUsu(usuarionuevo);
+			iUsuarioService.crear(usuarionuevo);
 		}
 		return "redirect:/listausuarios";
 	}
